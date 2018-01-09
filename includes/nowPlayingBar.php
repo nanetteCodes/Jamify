@@ -11,9 +11,9 @@ $jsonArray = json_encode($resultArray);
 <script>
 
   $(document).ready(function() {
-    currentPlaylist = <?php echo $jsonArray; ?>;
+    var newPlaylist = <?php echo $jsonArray; ?>;
     audioElement = new Audio();
-    setTrack(currentPlaylist[0], currentPlaylist, false);
+    setTrack(newPlaylist[0], newPlaylist, false);
     updateVolumeProgressBar(audioElement.audio);
     //stops elements from highlighting on page using prevent default
     $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", function(e){
@@ -81,7 +81,7 @@ $jsonArray = json_encode($resultArray);
     } else {
       currentIndex++;
     }
-    var trackToPlay= currentPlaylist[currentIndex];
+    var trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
     setTrack(trackToPlay, currentPlaylist, true);
   }
 
@@ -105,8 +105,10 @@ $jsonArray = json_encode($resultArray);
     if(shuffle == true) {
       //randomize playlist
       shuffleArray(shufflePlaylist);
+      currentIndex = shufflePlaylist.indexOf(audioElement.currentlyPlaying.id);
     } else {
       //shuffle off = ordered playlist
+      currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id);
     }
   }
 
@@ -124,11 +126,16 @@ $jsonArray = json_encode($resultArray);
   function setTrack(trackId, newPlaylist, play) {
     if(newPlaylist != currentPlaylist) {
       currentPlaylist = newPlaylist;
-      //returns a copy 
+      //returns a copy
       shufflePlaylist = currentPlaylist.slice();
       shuffleArray(shufflePlaylist);
     }
-    currentIndex = currentPlaylist.indexOf(trackId);
+    if(shuffle == true){
+      currentIndex = shufflePlaylist.indexOf(trackId);
+    } else{
+      currentIndex = currentPlaylist.indexOf(trackId);
+    }
+
     pauseSong();
     $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
 
