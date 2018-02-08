@@ -14,7 +14,7 @@
       $this->con = $con;
       $this->id = $id;
 
-      $query = mysqli_query($this->con, "SELECT * FROM songs WHERE id='$this->id'");
+      $query = mysqli_query($this->con, "SELECT * FROM Songs WHERE id='$this->id'");
       $this->mysqliData = mysqli_fetch_array($query);
       $this->title = $this->mysqliData['title'];
       $this->artistId = $this->mysqliData['artist'];
@@ -27,15 +27,15 @@
     public function getTitle() {
       return $this->title;
     }
-
+    public function getId() {
+      return $this->id;
+    }
     public function getArtist() {
       return new Artist($this->con, $this->artistId);
     }
-
     public function getAlbum() {
       return new Album($this->con, $this->albumId);
     }
-
     public function getPath() {
       return $this->path;
     }

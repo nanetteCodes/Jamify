@@ -361,3 +361,178 @@ body {
   float: left;
   text-align: right;
 }
+/*artist page ------------------------------*/
+
+.artistInfo {
+  text-align: center;
+}
+
+.button {
+  color:#fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-color: transparent;
+  font-weight: 500;
+  letter-spacing: 2px;
+  border: 2px solid #fff;
+  border-radius: 500px;
+  padding: 15px;
+  min-width: 130px;
+}
+
+.button.green{
+  background-color: #2ebd59;
+  border-color:#2ebd59;
+}
+
+.button.green:hover {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #2ebd59;
+}
+
+.borderBottom {
+  border-bottom: 1px solid #939393;
+  margin-bottom: 20px;
+}
+
+.trackListContainer h2,
+.artistsContainer h2,
+.gridViewContainer h2 {
+  text-align: center;
+  letter-spacing: 4px;
+  font-weight: 500px;
+}
+
+[role="link"] {
+  cursor: pointer;
+}
+
+.optionsMenu {
+  position: fixed;
+  background-color: #282828;
+  width: 200px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  z-index: 1000;
+  display: none;
+}
+
+.optionsMenu .item{
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-weight: 400;
+  color: rgba(147, 147, 147, 0.9);
+  cursor: pointer;
+  height: 40px;
+  background-color: #565656;
+  font-size: 14px;
+}
+
+.optionsMenu .item:hover {
+  color: #fff;
+  background-color: #333;
+  border-color: #333;
+}
+
+.optionsMenu select{
+  border: none;
+}
+
+/* search page ------------------------- */
+
+.searchContainer {
+  background-color: #242424;
+  padding: 20px 28px;
+}
+
+.searchContainer h4 {
+  margin:0;
+  font-weight: 300;
+}
+
+.searchContainer .searchInput {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 62px;
+  letter-spacing: 2px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.searchResultRow {
+  padding: 15px 10px;
+}
+
+.searchResultRow:hover {
+  background-color: #282828;
+}
+
+.searchResultRow .artistName span {
+  color: #fff;
+}
+.noResults {
+  margin: 15px;
+  display: block;
+}
+
+/* your music page ------------------ */
+
+.buttonItems button {
+  display: block;
+    margin: 0 auto 20px auto;
+}
+
+.playlistContainer {
+  padding: 10px 0;
+}
+
+.playlistImage {
+  border: 3px solid #282828;
+  padding: 10px;
+}
+
+/* profile page ---------------------- */
+
+.userInfo h1 {
+  text-align: center;
+}
+
+/* update profile page --------------- */
+
+.userDetails {
+  padding-left: 20px;
+}
+
+.userDetails .container h2 {
+  text-align: center;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"],
+.userDetails .container .button {
+  display: block;
+  margin: 16px auto;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"] {
+  height: 50px;
+  width: 100%;
+  background: #1f1f1f;
+  border: none;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 0 20px;
+}
+
+.userDetails .container .message {
+  color: #2ebd59;
+  font-weight: 300;
+}

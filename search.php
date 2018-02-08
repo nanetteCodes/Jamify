@@ -32,7 +32,7 @@ $(".searchInput").focus();
   <ul class="tracklist">
     <?php
     //% to search and get results with that word and anything after
-    $songQuery =mysqli_query($con, "SELECT id FROM songs WHERE title LIKE '$term%' LIMIT 10");
+    $songQuery =mysqli_query($con, "SELECT id FROM Songs WHERE title LIKE '$term%' LIMIT 10");
     if(mysqli_num_rows($songQuery) == 0) {
       echo "<span class='noResults'> No songs found matching " . $term . "</span>";
     }
@@ -59,7 +59,8 @@ $(".searchInput").focus();
                 <span class='artistName'>" . $albumArtist->getName() . "</span>
               </div>
               <div class='trackOptions'>
-                <img class='optionsButton' src='assets/images/icons/more.png'>
+                <input type='hidden' class='songId' value='" . $albumSong->getId() ."'>
+                <img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
               </div>
               <div class='trackDuration'>
                 <span class='duration'>" . $albumSong->getDuration() . "</span>
@@ -117,3 +118,7 @@ $(".searchInput").focus();
           }
    ?>
 </div>
+<nav class="optionsMenu">
+  <input type="hidden" class="songId">
+    <?php echo Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()); ?>
+</nav>
